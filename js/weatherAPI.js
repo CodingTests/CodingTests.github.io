@@ -167,10 +167,10 @@ function displayWeather(tempNow, maxLater, minLater, descr, url, dates, loc){
 	$("#location").show();
 	$("#location").html("<h3>"+loc+"</h3>");
 	$("#weatherBox").show();
-	$("#weatherBox").append("<div class='col-md-3'></div>");
-	$("#weatherBox").append("<div class='col-md-2' class='weatherContent'><h3 class='weatherText'>Current</h3>"+"<br /><h4 class='weatherText'>&nbsp;</h4><br /><h4 class='weatherText'>"+tempNow+"&deg; "+type+"</h4><br /><img class='weatherIcon' src='"+url[0]+"' />"+"<br /><h4>"+descr[0]+"</h4></div>");
-	$("#weatherBox").append("<div class='col-md-2' class='weatherContent'><h3 class='weatherText'>"+dates[1]+"</h3>"+"<br /><h4 class='weatherText'>Max: "+maxLater[0]+"&deg; "+type+"</h4><br /><h4 class='weatherText'>Min: "+minLater[0]+"&deg; "+type+"</h4><br /><img class='weatherIcon' src='"+url[1]+"' />"+"<br /><h4>"+descr[1]+"</h4></div>");
-	$("#weatherBox").append("<div class='col-md-2' class='weatherContent'><h3 class='weatherText'>"+dates[2]+"</h3>"+"<br /><h4 class='weatherText'>Max: "+maxLater[1]+"&deg; "+type+"</h4><br /><h4 class='weatherText'>Min: "+minLater[1]+"&deg; "+type+"</h4><br /><img class='weatherIcon' src='"+url[2]+"' />"+"<br /><h4>"+descr[2]+"</h4></div>");
+	$("#weatherBox").append("<div class='col-md-1'></div>");
+	$("#weatherBox").append("<div class='col-md-3' class='weatherContent'><h3 class='weatherText'>Current</h3>"+"<br /><h4 class='weatherText'>&nbsp;</h4><br /><h4 class='weatherText'>"+tempNow+"&deg; "+type+"</h4><br /><img class='weatherIcon' src='"+url[0]+"' />"+"<br /><h4>"+descr[0]+"</h4></div>");
+	$("#weatherBox").append("<div class='col-md-3' class='weatherContent'><h3 class='weatherText'>"+dates[1]+"</h3>"+"<br /><h4 class='weatherText'>Max: "+maxLater[0]+"&deg; "+type+"</h4><br /><h4 class='weatherText'>Min: "+minLater[0]+"&deg; "+type+"</h4><br /><img class='weatherIcon' src='"+url[1]+"' />"+"<br /><h4>"+descr[1]+"</h4></div>");
+	$("#weatherBox").append("<div class='col-md-3' class='weatherContent'><h3 class='weatherText'>"+dates[2]+"</h3>"+"<br /><h4 class='weatherText'>Max: "+maxLater[1]+"&deg; "+type+"</h4><br /><h4 class='weatherText'>Min: "+minLater[1]+"&deg; "+type+"</h4><br /><img class='weatherIcon' src='"+url[2]+"' />"+"<br /><h4>"+descr[2]+"</h4></div>");
 }
 
 //empties every display box to not overlap weather data
