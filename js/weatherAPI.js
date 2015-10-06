@@ -91,10 +91,16 @@ function isZipCode(input){
 function isCity(input){
 	//regex to find numbers in string
 	var numbers = input.match(/\d+/g);
+	var symbols = input.match(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/g);
+	console.log(numbers);
+	console.log(symbols);
 	if(numbers === null){
-		return true;
+		numbers = [];
 	}
-	if(numbers.length > 0){
+	if(symbols === null){
+		symbols = [];
+	}
+	if(numbers.length > 0 || symbols.length > 0){
 		return false;
 	}
 	return true;
