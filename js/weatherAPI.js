@@ -2,18 +2,21 @@
 	Written by Joseph Distler
 */
 
-//farenheit default
+//Fahrenheit is default
 var selection = true;
 
 //JQuery to detect input change and button clicks
 $(document).ready(function(){
+	
+	//input is detected, and checked for validity
 	$("#searchBar").on('input',function(e){
 		clearDisplays();
 		var input = $("#searchBar").val();
 		processInput(input);
     });
 	
-	//select buttons
+	//buttons for Fahrenheit and Celsius
+	//color changes for mouseover, mouseout, and click
 	$("#fBut").on('mouseover', function(){
 		if(! $("#fBut").hasClass('clicked')){
 			$("#fBut").removeClass().addClass('btn btn-default tempButtons');
@@ -62,7 +65,6 @@ function processInput(input){
 			//make ajax call
 			callAPI(input, selection);
 		}
-		$("#alert").html(2);
 	}
 	else if(isCity(input)){
 		//make ajax call
@@ -77,6 +79,7 @@ function processInput(input){
 
 //checks if string is a number
 function isZipCode(input){
+	//converts string to number and determines if variable is valid
 	var zip = Number(input);
 	if(isNaN(zip) || input.length > 5){
 		return false;
@@ -99,7 +102,7 @@ function isCity(input){
 
 //API Call
 function callAPI(input){
-	console.log("yes");
+	//ajax url call with JSON result
 	var url = "http://api.worldweatheronline.com/free/v1/weather.ashx?q={"+input+"}&format=json&num_of_days=3&key=4925da30d1aa95a1460e52de2c833d6c18fbba28";
 	$.ajax({url: url, success: function(result){
         processWeather(result);
@@ -108,7 +111,7 @@ function callAPI(input){
 
 //processes API call data
 function processWeather(data){
-	console.log(data);
+	//will store relevant weather data
 	var loc;
 	var tempNow;
 	var maxTempLater = [];
@@ -117,6 +120,7 @@ function processWeather(data){
 	var url = [];
 	var dates = [];
 	
+	//stores Fahrenheit or Celsius, depending on button selection
 	if(selection){
 		tempNow = data.data.current_condition[0].temp_F;
 		
@@ -135,6 +139,7 @@ function processWeather(data){
 		maxTempLater.push(data.data.weather[2].tempMaxC);
 		minTempLater.push(data.data.weather[2].tempMinC);
 	}
+	//rest of the relevant data is added to arrays
 	descr.push(data.data.current_condition[0].weatherDesc[0].value);
 	descr.push(data.data.weather[1].weatherDesc[0].value);
 	descr.push(data.data.weather[2].weatherDesc[0].value);
@@ -168,7 +173,7 @@ function displayWeather(tempNow, maxLater, minLater, descr, url, dates, loc){
 	$("#weatherBox").append("<div class='col-md-2' class='weatherContent'><h3 class='weatherText'>"+dates[2]+"</h3>"+"<br /><h4 class='weatherText'>Max: "+maxLater[1]+"&deg; "+type+"</h4><br /><h4 class='weatherText'>Min: "+minLater[1]+"&deg; "+type+"</h4><br /><img class='weatherIcon' src='"+url[2]+"' />"+"<br /><h4>"+descr[2]+"</h4></div>");
 }
 
-//emptys every display box to not overlap weather data
+//empties every display box to not overlap weather data
 function clearDisplays(){
 	$("#location").hide();
 	$("#location").html('');
