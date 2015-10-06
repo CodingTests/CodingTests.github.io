@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+   <head>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Weather API Test</title>
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+	  <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+	  <link rel="stylesheet" href="css/font-awesome.min.css" />
+	  <link rel="stylesheet" href="css/custom-styles.css" />
+	  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	  
+   </head>
+   <body>
+	  <div class="jumbotron">
+			<div class="text-center">
+				<h1 class="titleText">Weather API Task</h1>
+				<span class="bigLogo"><i class="fa fa-sun-o"></i></span>&nbsp;&nbsp;
+				<span class="bigLogo"><i class="fa fa-cloud"></i></span>
+			</div>
+	  </div>
+	  <div class="container">
+		<div class="text-center">
+			<h2>Zip Code or City</h2>
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<input id="searchBar" class="form-control" size="25" maxlength="25" value="">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="row" style="margin-top:10px">
+					<div class="col-md-6">
+						<button class="btn btn-default tempButtons clicked" id="fBut">Fahrenheit</button>
+					</div>
+					<div class="col-md-6">
+						<button class="btn btn-success tempButtons" id="cBut">Celsius</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="row" id="warningNote">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="alert alert-danger" role="alert" id="alert"></div>
+			</div>
+		</div>
+		<div class="text-center" id="location">
+		</div>
+		<div class="row" id="weatherBox">
+		</div>
+	  </div>
+      <script src="js/jquery-2.1.4.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+	  <script src="js/weatherAPI.js"></script>
+   </body>
+</html>
